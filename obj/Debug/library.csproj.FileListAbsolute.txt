@@ -105,7 +105,6 @@ E:\ASP.NET\library\obj\Debug\library.csproj.CoreCompileInputs.cache
 E:\ASP.NET\library\obj\Debug\library.csproj.CopyComplete
 E:\ASP.NET\library\obj\Debug\library.dll
 E:\ASP.NET\library\obj\Debug\library.pdb
-E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
 E:\ASP.NET\library\obj\Debug\library.Migrations.InitialModel.resources
 E:\ASP.NET\library\obj\Debug\library.csproj.GenerateResource.cache
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddMembershipType.resources
@@ -113,3 +112,4 @@ E:\ASP.NET\library\obj\Debug\library.Migrations.PopulateMembershipTypes.resource
 E:\ASP.NET\library\obj\Debug\library.Migrations.ApplyAnnotationsToCustomerName.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddNameToMembershipType.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.UpdateMembershipType.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddCustomersBirthday.resources

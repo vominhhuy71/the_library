@@ -14,5 +14,7 @@ namespace library.Models
         public string Name { get; set; }
 
         public MembershipType MembershipType { get; set; } 
+
+        public DateTime? Birthday { get; set; }
     }
 }
