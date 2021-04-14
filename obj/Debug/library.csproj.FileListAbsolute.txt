@@ -110,3 +110,6 @@ E:\ASP.NET\library\obj\Debug\library.Migrations.InitialModel.resources
 E:\ASP.NET\library\obj\Debug\library.csproj.GenerateResource.cache
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddMembershipType.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.PopulateMembershipTypes.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.ApplyAnnotationsToCustomerName.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddNameToMembershipType.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.UpdateMembershipType.resources

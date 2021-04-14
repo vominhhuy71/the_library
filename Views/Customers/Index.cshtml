@@ -12,9 +12,9 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">
-                Customers
-            </th>
+            <th scope="col">Customers</th>
+            <th scope="col">Membership Type</th>
+            <th scope="col">Fee</th>
         </tr>
 
     </thead>
@@ -25,6 +25,8 @@
                 <td>
                     @Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id},null)
                 </td>
+                <td>@customer.MembershipType.Name</td>
+                <td>€@customer.MembershipType.SignUpFee</td>
             </tr>
         }
     </tbody>
