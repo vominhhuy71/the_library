@@ -13,16 +13,30 @@ namespace library.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "John Smith" },
-                new Customer { Name = "Mary Williams" }
-            };
-            var viewModel = new CustomersViewModel
-            {
-                Customers = customers
-            };
-            return View(viewModel);
+            var customers = GetCustomers();
+            return View(customers);
         }
+
+        
+        public ActionResult Details(int id)
+        {
+            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        #region Helper
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+            {
+                new Customer {Id=1, Name = "John Smith" },
+                new Customer {Id=2, Name = "Mary Williams" }
+            };
+        }
+        #endregion
     }
 }

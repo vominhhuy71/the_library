@@ -11,10 +11,10 @@ namespace library.Controllers
     public class BooksController : Controller
     {
         // GET: Books
-        public ActionResult Index(int? pageIndex=1, string sortBy="Name")
+        public ActionResult Index()
         {
-
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            var books = GetBooks();
+            return View(books);
         }
 
         //GET: Books/Random
@@ -42,15 +42,14 @@ namespace library.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Edit(int id)
+        private IEnumerable<Book> GetBooks()
         {
-            return Content("id=" + id);
+            return new List<Book>
+            {
+                new Book {Id = 1, Name = "Book 1"},
+                new Book {Id = 2, Name = "Book 2"},
+            };
         }
 
-        [Route("books/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseDay (int year, int month)
-        {
-            return Content(year + "/" + month);
-        }
     }
 }

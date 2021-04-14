@@ -101,8 +101,8 @@ E:\ASP.NET\library\bin\Microsoft.Owin.Security.Twitter.xml
 E:\ASP.NET\library\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\ASP.NET\library\bin\Microsoft.Owin.Security.OAuth.xml
 E:\ASP.NET\library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
 E:\ASP.NET\library\obj\Debug\library.csproj.CoreCompileInputs.cache
 E:\ASP.NET\library\obj\Debug\library.csproj.CopyComplete
 E:\ASP.NET\library\obj\Debug\library.dll
 E:\ASP.NET\library\obj\Debug\library.pdb
+E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
