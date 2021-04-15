@@ -117,3 +117,4 @@ E:\ASP.NET\library\obj\Debug\library.Migrations.AddGenre.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.PopulateGenre.resources
 E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddMembershipTypeIdCustomer.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.UpdateBookGenreId.resources

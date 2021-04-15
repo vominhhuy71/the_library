@@ -40,39 +40,51 @@ namespace library.Controllers
             return View(book);
         }
 
-        //GET: Books/Random
-        public ActionResult Random()
+        public ActionResult New()
         {
-            var book = new Book() {Name = "Book 1"};
-
-            //ViewData dictionary
-            //ViewData["Book"] = book;
-            //ViewBag 
-            //ViewBag.Book = book;
-
-            var customer = new List<Customer>
+            var genres = _context.Genres.ToList();
+            var viewModel = new BookFormViewModel
             {
-                new Customer {Name="Customer 1"},
-                new Customer {Name="Customer 2"},
+                Genres = genres,
+            };
+            return View("BookForm", viewModel);
+        }
+
+        public ActionResult Edit(int id) 
+        {
+            var book = _context.Books.SingleOrDefault(b => b.Id == id);
+            if(book == null)
+            {
+                return HttpNotFound();
             };
 
-            var viewModel = new RandomBookViewModel
+            var viewModel = new BookFormViewModel
             {
                 Book = book,
-                Customers = customer,
+                Genres = _context.Genres.ToList()
             };
-
-            return View(viewModel);
+            return View("BookForm", viewModel);
         }
 
-        private IEnumerable<Book> GetBooks()
+        [HttpPost]
+        public ActionResult Save(Book book)
         {
-            return new List<Book>
+            if(book.Id == 0)
             {
-                new Book {Id = 1, Name = "Book 1"},
-                new Book {Id = 2, Name = "Book 2"},
-            };
+                book.DayAdded = DateTime.Now;
+                _context.Books.Add(book);
+            }
+            else
+            {
+                var bookInDb = _context.Books.Single(b => b.Id == book.Id);
+                bookInDb.Name = book.Name;
+                bookInDb.GenreId = book.GenreId;
+                bookInDb.NumberInStock = book.NumberInStock;
+                bookInDb.ReleaseDay = book.ReleaseDay;
+                
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Books");
         }
-
     }
 }

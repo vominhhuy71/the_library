@@ -9,6 +9,10 @@
 {
     <text>We don't have any book yet!</text>
 }
+
+<p>
+    @Html.ActionLink("New Book","New","Books", null, new { @class="btn btn-primary"})
+</p>
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
@@ -22,7 +26,7 @@
         {
             <tr class="table-active">
                 <td>
-                    @Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)
+                    @Html.ActionLink(book.Name, "Edit", "Books", new { id = book.Id }, null)
                 </td>
                 <td>@book.Genre.Name</td>
             </tr>
