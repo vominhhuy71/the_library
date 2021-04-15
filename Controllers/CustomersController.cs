@@ -29,7 +29,6 @@ namespace library.Controllers
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
-
         
         public ActionResult Details(int id)
         {
@@ -41,6 +40,23 @@ namespace library.Controllers
             return View(customer);
         }
 
-        
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes,
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(NewCustomerViewModel viewModel)
+        {
+            _context.Customers.Add(viewModel.Customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
     }
 }
