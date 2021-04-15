@@ -18,18 +18,19 @@ namespace library.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        
         public Genre Genre { get; set; }
         [Required]
         [Display(Name ="Genre")]
         public int GenreId { get; set; }
 
         [Display(Name="Release Day")]
+        [Required]
         public DateTime ReleaseDay { get; set; }
 
         [Display(Name="Day added")]
         public DateTime DayAdded { get; set; }
-
+        [Range(1,20)]
+        [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
 
     }

@@ -18,6 +18,7 @@
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Genre</th>
+            <th scope="col">In stock</th>
         </tr>
 
     </thead>
@@ -29,6 +30,7 @@
                     @Html.ActionLink(book.Name, "Edit", "Books", new { id = book.Id }, null)
                 </td>
                 <td>@book.Genre.Name</td>
+                <td>@book.NumberInStock</td>
             </tr>
         }
     </tbody>

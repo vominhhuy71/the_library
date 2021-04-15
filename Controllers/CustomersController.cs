@@ -46,11 +46,13 @@ namespace library.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes,
+                Customer = new Customer(),
             };
             return View("CustomerForm",viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)

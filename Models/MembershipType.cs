@@ -13,5 +13,7 @@ namespace library.Models
         public string Name { get; set; }
         public short SignUpFee { get; set; }
         public byte DurationInMonths { get; set; }
+
+        public static readonly byte Teacher = 2;
     }
 }

@@ -118,3 +118,11 @@ E:\ASP.NET\library\obj\Debug\library.Migrations.PopulateGenre.resources
 E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddMembershipTypeIdCustomer.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.UpdateBookGenreId.resources
+E:\ASP.NET\library\bin\System.Net.Http.Formatting.dll
+E:\ASP.NET\library\bin\System.Web.Http.dll
+E:\ASP.NET\library\bin\System.Web.Http.WebHost.dll
+E:\ASP.NET\library\bin\System.Net.Http.Formatting.xml
+E:\ASP.NET\library\bin\System.Web.Http.xml
+E:\ASP.NET\library\bin\System.Web.Http.WebHost.xml
+E:\ASP.NET\library\bin\AutoMapper.dll
+E:\ASP.NET\library\bin\AutoMapper.xml

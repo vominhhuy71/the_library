@@ -11,7 +11,7 @@ namespace library.Models
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var customer = (Customer)validationContext.ObjectInstance;
-            if(customer.MembershipTypeId != 2)
+            if(customer.MembershipTypeId != MembershipType.Teacher)
             {
                 return ValidationResult.Success;
             };

@@ -45,6 +45,7 @@ namespace library.Controllers
             var genres = _context.Genres.ToList();
             var viewModel = new BookFormViewModel
             {
+                //From here book.Id = 0 will be pass to Save()
                 Genres = genres,
             };
             return View("BookForm", viewModel);
@@ -58,22 +59,32 @@ namespace library.Controllers
                 return HttpNotFound();
             };
 
-            var viewModel = new BookFormViewModel
-            {
-                Book = book,
+            var viewModel = new BookFormViewModel(book)
+            {               
                 Genres = _context.Genres.ToList()
             };
             return View("BookForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Book book)
         {
-            if(book.Id == 0)
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel(book)
+                {                 
+                    Genres = _context.Genres.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+            //Create New
+            if (book.Id == 0)
             {
                 book.DayAdded = DateTime.Now;
                 _context.Books.Add(book);
             }
+            //Edit
             else
             {
                 var bookInDb = _context.Books.Single(b => b.Id == book.Id);
