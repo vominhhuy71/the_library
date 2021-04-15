@@ -1,28 +1,33 @@
 ﻿@model IEnumerable<library.Models.Book>
 @{
-    ViewBag.Title = "Books";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Books</h2>
-
-<table>
+@if (!Model.Any())
+{
+    <text>We don't have any book yet!</text>
+}
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>
-                Books
-            </th>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
         </tr>
+
     </thead>
     <tbody>
-        @foreach(var book in Model)
+        @foreach (var book in Model)
         {
-            <tr>
+            <tr class="table-active">
                 <td>
-                    @book.Name
+                    @Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)
                 </td>
+                <td>@book.Genre.Name</td>
             </tr>
         }
     </tbody>
 </table>
+
 

@@ -113,3 +113,6 @@ E:\ASP.NET\library\obj\Debug\library.Migrations.ApplyAnnotationsToCustomerName.r
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddNameToMembershipType.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.UpdateMembershipType.resources
 E:\ASP.NET\library\obj\Debug\library.Migrations.AddCustomersBirthday.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddGenre.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.PopulateGenre.resources
+E:\ASP.NET\library\obj\Debug\library.csprojAssemblyReference.cache
