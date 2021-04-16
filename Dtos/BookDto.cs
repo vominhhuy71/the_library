@@ -11,6 +11,8 @@ namespace library.Dtos
 
         public string Name { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         public byte GenreId { get; set; }
 
         public DateTime DayAdded { get; set; }

@@ -1,29 +1,30 @@
 ﻿@model IEnumerable<library.Models.Book>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Books</h2>
-@if (!Model.Any())
+@*@if (!Model.Any())
 {
     <text>We don't have any book yet!</text>
-}
+}*@
 
 <p>
-    @Html.ActionLink("New Book","New","Books", null, new { @class="btn btn-primary"})
+    @Html.ActionLink("New Book", "New", "Books", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table table-hover table-bordered">
+<table id="books" class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Genre</th>
-            <th scope="col">In stock</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>In stock</th>
+            <th>Delete</th>
         </tr>
 
     </thead>
     <tbody>
-        @foreach (var book in Model)
+        @*@foreach (var book in Model)
         {
             <tr class="table-active">
                 <td>
@@ -32,8 +33,58 @@
                 <td>@book.Genre.Name</td>
                 <td>@book.NumberInStock</td>
             </tr>
-        }
+        }*@
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            //DataTable will receive raw data from API.
+            var table = $("#books").DataTable({
+                ajax: {
+                    url: "/api/books",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, book) {
+                            return "<a href='/books/edit/'" + book.id + "'>" + book.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                    {
+                        data: "numberInStock"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-book-id=" + data + "> Delete </button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#books").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete this book?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/books/" + button.attr("data-book-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    };
+                });
+            });
+        });
+    </script>
+}
 
 

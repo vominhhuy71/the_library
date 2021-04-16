@@ -7,14 +7,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace library.Controllers.Api
 {
-    public class BookController : ApiController
+    public class BooksController : ApiController
     {
         public ApplicationDbContext _context;
 
-        public BookController()
+        public BooksController()
         {
             _context = new ApplicationDbContext();
         }
@@ -22,7 +23,10 @@ namespace library.Controllers.Api
         //GET /api/books
         public IHttpActionResult GetBooks()
         {
-            var bookDtos = _context.Books.ToList().Select(Mapper.Map<Book, BookDto>);
+            var bookDtos = _context.Books
+                .Include(b=>b.Genre)
+                .ToList()
+                .Select(Mapper.Map<Book, BookDto>);
             return Ok(bookDtos);
         }
 
