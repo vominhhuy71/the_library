@@ -126,3 +126,11 @@ E:\ASP.NET\library\bin\System.Web.Http.xml
 E:\ASP.NET\library\bin\System.Web.Http.WebHost.xml
 E:\ASP.NET\library\bin\AutoMapper.dll
 E:\ASP.NET\library\bin\AutoMapper.xml
+E:\ASP.NET\library\obj\Debug\library.Migrations.SeedUsers.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddIdCard.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddPhoneToUserRegister.resources
+E:\ASP.NET\library\bin\Glimpse.Ado.dll
+E:\ASP.NET\library\bin\Glimpse.AspNet.dll
+E:\ASP.NET\library\bin\Glimpse.Core.dll
+E:\ASP.NET\library\bin\Glimpse.EF6.dll
+E:\ASP.NET\library\bin\Glimpse.Mvc5.dll

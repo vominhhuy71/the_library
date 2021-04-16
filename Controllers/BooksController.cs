@@ -28,7 +28,9 @@ namespace library.Controllers
         {
             //var books = _context.Books.Include(b => b.Genre).ToList();
             //return View(books);
-            return View();
+            if (User.IsInRole(RoleName.CanManageBook))
+                return View("List");
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -41,6 +43,7 @@ namespace library.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.CanManageBook)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -51,7 +54,7 @@ namespace library.Controllers
             };
             return View("BookForm", viewModel);
         }
-
+        [Authorize(Roles = RoleName.CanManageBook)]
         public ActionResult Edit(int id) 
         {
             var book = _context.Books.SingleOrDefault(b => b.Id == id);
@@ -69,6 +72,7 @@ namespace library.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageBook)]
         public ActionResult Save(Book book)
         {
             if (!ModelState.IsValid)

@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using library.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using library.ViewModels;
 
 namespace library.Controllers
 {
@@ -151,10 +153,22 @@ namespace library.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                var user = new ApplicationUser { 
+                    UserName = model.Email, 
+                    Email = model.Email ,
+                    IdCard = model.IdCard,
+                    Phone = model.Phone
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Temp for creating Manager
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageBook"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageBook");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -367,7 +381,12 @@ namespace library.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { 
+                    UserName = model.Email, 
+                    Email = model.Email,
+                    IdCard = model.IdCard,
+                    Phone = model.Phone,
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

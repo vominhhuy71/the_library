@@ -43,6 +43,7 @@ namespace library.Controllers.Api
 
         //POST /api/books
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageBook)]
         public IHttpActionResult CreateBook(BookDto bookDto)
         {
             if (!ModelState.IsValid)
@@ -60,6 +61,7 @@ namespace library.Controllers.Api
 
         //PUT /api/books/{id}
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageBook)]
         public IHttpActionResult UpdateBook(int id, BookDto bookDto)
         {
             if (!ModelState.IsValid)
@@ -80,6 +82,7 @@ namespace library.Controllers.Api
 
         // DELETE /api/customers/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageBook)]
         public IHttpActionResult DeleteBook(int id)
         {
             if (!ModelState.IsValid)
