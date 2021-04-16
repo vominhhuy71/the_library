@@ -1,0 +1,40 @@
+﻿@model library.ViewModels.BookFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Books"))
+{
+    <div class="form-group">
+        @Html.LabelFor(b => b.Name)
+        @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b=>b.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.ReleaseDay)
+        @Html.TextBoxFor(b => b.ReleaseDay, "{0:dd MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.ReleaseDay)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.GenreId)
+        @Html.DropDownListFor(b => b.GenreId, new SelectList(Model.Genres, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.GenreId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.NumberInStock)
+        @Html.TextBoxFor(b => b.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.NumberInStock)
+    </div>
+    @Html.HiddenFor(b => b.Id)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

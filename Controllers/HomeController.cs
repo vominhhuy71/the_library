@@ -14,11 +14,13 @@ namespace library.Controllers
         //[OutputCache(Duration = 50, Location = OutputCacheLocation.Server, VaryByParam = "*")]
         public ActionResult Index()
         {
+
             return View();
         }
 
         public ActionResult About()
         {
+            throw new Exception();
             ViewBag.Message = "Your application description page.";
 
             return View();

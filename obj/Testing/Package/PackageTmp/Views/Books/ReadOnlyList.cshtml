@@ -1,0 +1,63 @@
+﻿@model IEnumerable<library.Models.Book>
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Books</h2>
+@*@if (!Model.Any())
+{
+    <text>We don't have any book yet!</text>
+}*@
+
+<table id="books" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>In stock</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @*@foreach (var book in Model)
+        {
+            <tr class="table-active">
+                <td>
+                    @Html.ActionLink(book.Name, "Edit", "Books", new { id = book.Id }, null)
+                </td>
+                <td>@book.Genre.Name</td>
+                <td>@book.NumberInStock</td>
+            </tr>
+        }*@
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            //DataTable will receive raw data from API.
+            var table = $("#books").DataTable({
+                ajax: {
+                    url: "/api/books",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name"
+                       
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                    {
+                        data: "numberInStock"
+                    }
+                ]
+            });         
+        });
+    </script>
+}
+
+
