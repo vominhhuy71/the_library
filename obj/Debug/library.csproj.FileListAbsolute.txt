@@ -134,3 +134,5 @@ E:\ASP.NET\library\bin\Glimpse.AspNet.dll
 E:\ASP.NET\library\bin\Glimpse.Core.dll
 E:\ASP.NET\library\bin\Glimpse.EF6.dll
 E:\ASP.NET\library\bin\Glimpse.Mvc5.dll
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddRentalModel.resources
+E:\ASP.NET\library\obj\Debug\library.Migrations.AddBookNumberAvailable.resources

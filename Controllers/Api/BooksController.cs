@@ -21,10 +21,16 @@ namespace library.Controllers.Api
         }
 
         //GET /api/books
-        public IHttpActionResult GetBooks()
+        public IHttpActionResult GetBooks(string query = null)
         {
-            var bookDtos = _context.Books
-                .Include(b=>b.Genre)
+            var booksQuery = _context.Books
+                .Include(m => m.Genre)
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                booksQuery = booksQuery.Where(m => m.Name.Contains(query));
+
+            var bookDtos = booksQuery
                 .ToList()
                 .Select(Mapper.Map<Book, BookDto>);
             return Ok(bookDtos);
