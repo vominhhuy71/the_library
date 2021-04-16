@@ -10,14 +10,14 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+            <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
         <label>Book</label>
         <div class="tt-container">
-            <input id="book" data-rule-atLeastOneBook="true" type="text" value="" class="form-control" />
+            <input id="book" name="book" data-rule-atLeastOneBook="true" type="text" value="" class="form-control" />
         </div>
     </div>
     <div class="row">
@@ -99,6 +99,12 @@
                     })
                         .done(function () {
                             toastr.success("Rentals successfully recorded.");
+
+                            $("#customer").typeahead("val", "");
+                            $("#book").typeahead("val", "");
+                            $("#books").empty();
+                            vm = { bookIds: [] };
+                            validator.resetForm();
                         })
                         .fail(function () {
                             toastr.error("Something wrong happened!");

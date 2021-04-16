@@ -20,5 +20,6 @@ namespace library.Dtos
         public DateTime ReleaseDay { get; set; }
 
         public byte NumberInStock { get; set; }
+        public byte NumberAvailable { get; set; }
     }
 }
